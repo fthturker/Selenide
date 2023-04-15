@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="2.742" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="checkbox ve radio button" name="TC01 checkbox" time="2.583">
+<testsuite name="Cucumber" time="13.285" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="checkbox ve radio button" name="TC03 radio" time="13.107">
 <system-out><![CDATA[
-Given kullanici "https://testcenter.techproeducation.com/index.php?page=checkboxes" adresine gider.passed
-And "Checkbox 1" secili degilse sec.........................................passed
-And "Checkbox 2" secili degilse sec.........................................passed
+Given kullanici "https://testcenter.techproeducation.com/index.php?page=radio-buttons" adresine gider.passed
+And "Football" secili degilse sec...........................................passed
+When 5 saniye bekler........................................................passed
 And sayfayi acik tutar......................................................passed
 ]]></system-out>
 </testcase>
