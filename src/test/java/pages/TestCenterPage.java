@@ -11,7 +11,12 @@ public class TestCenterPage {
     // kullanici sifresi
     public SelenideElement kullaniciSifresi=$("#exampleInputPassword1");
     // submit butonu
-    public SelenideElement submitButton=$(By.xpath("//button[@class='btn btn-primary']"));
+    public SelenideElement submitButton=$(By.xpath("//button[@type='submit']"));
     // giris mesajı
     public SelenideElement girisMesaji=$(By.xpath("//*[contains(text(),'You logged into a secure area!')]"));
+
+    // checkbox elementleri
+    public SelenideElement checkbox1=$(By.id("box1"));
+
+    public SelenideElement checkbox2=$(By.id("box2"));
 }

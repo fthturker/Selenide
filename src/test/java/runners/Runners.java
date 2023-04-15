@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
         monochrome = true,
         features = "./src/test/resources/features",
         glue={"stepdefinitions"},
-        tags="@locators",
+        tags="@checkbox",
         dryRun = false
 )
 public class Runners {

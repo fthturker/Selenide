@@ -16,4 +16,3 @@
       # 3. yeni test adimlari icin yeni bir step definition class olustur ve step definitions(java metotlari) olustur.
       # 4. page class olustur. pages klasorunun altinda
       # 5. kullaniciAdi, sifresi ve submit butonunu o sayfada bul
-      # 6.
