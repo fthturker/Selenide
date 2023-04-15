@@ -19,4 +19,11 @@ public class TestCenterPage {
     public SelenideElement checkbox1=$(By.id("box1"));
 
     public SelenideElement checkbox2=$(By.id("box2"));
+
+    // radio elementleri
+    public SelenideElement redbox=$(By.id("red"));
+
+    public SelenideElement footballbox=$(By.id("football"));
+
+
 }

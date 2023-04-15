@@ -36,7 +36,7 @@ public class TestCenterStepDefinitions {
     @And("{string} secili degilse sec")
     public void seciliDegilseSec(String arg0) {
         // eger text = Checkbox 1 ve Checkbox 1 secili degilse, Checkbox 1 'e tıkla
-        if(text.equals("Checkbox 1") && testCenterPage.checkbox1.isSelected()){
+        if(text.equals("Checkbox 1") && !testCenterPage.checkbox1.isSelected()){
             testCenterPage.checkbox1.click();
             //Assert.assertTrue(testCenterPage.checkbox1.isSelected());
             testCenterPage.checkbox1.shouldBe(checked);
@@ -45,6 +45,16 @@ public class TestCenterStepDefinitions {
             testCenterPage.checkbox2.shouldNotBe(checked); // secili olmadıgını dogrulamak icin
             testCenterPage.checkbox2.click();
             testCenterPage.checkbox2.shouldBe(checked); // secili oldugunu dogrulamak icin
+        }
+        if (text.equals("Red") && !testCenterPage.redbox.isSelected()){
+            testCenterPage.redbox.shouldNotBe(checked); // secili olmadigini test et
+            testCenterPage.redbox.click(); // sec
+            testCenterPage.redbox.shouldBe(checked); // secili oldugunu test et
+        }
+        if (text.equals("Football") && !testCenterPage.footballbox.isSelected()){
+            testCenterPage.footballbox.shouldNotBe(checked); // secili olmadigini test et
+            testCenterPage.footballbox.click(); // sec
+            testCenterPage.footballbox.shouldBe(checked); // secili oldugunu test et
         }
     }
 }
