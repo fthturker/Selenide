@@ -25,5 +25,17 @@ public class TestCenterPage {
 
     public SelenideElement footballbox=$(By.id("football"));
 
+    // dropdown elementleri
+    public  SelenideElement yil=$(By.id("year"));
+
+    public SelenideElement ay=$(By.id("month"));
+
+    public SelenideElement gun=$(By.id("day"));
+
+    // alert elementleri
+    public SelenideElement promptButton=$(By.xpath("//button[@onclick='jsPrompt()']"));
+
+    public SelenideElement sonuc=$("#result");
+
 
 }

@@ -4,12 +4,14 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
 import pages.TestCenterPage;
 
 import static com.codeborne.selenide.Condition.checked;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.switchTo;
 import static com.codeborne.selenide.impl.Html.text;
+import static java.lang.Thread.sleep;
 
 public class TestCenterStepDefinitions {
     TestCenterPage testCenterPage=new TestCenterPage();
@@ -56,5 +58,39 @@ public class TestCenterStepDefinitions {
             testCenterPage.footballbox.click(); // sec
             testCenterPage.footballbox.shouldBe(checked); // secili oldugunu test et
         }
+    }
+
+    // dropdowmn step definitions
+    @And("kullanici yil olarak {int}, ay olarak {string}, gun olarak {int}")
+    public void kullaniciYilOlarakAyOlarakGunOlarak(int yil, String ay, int gun) throws InterruptedException {
+        //testCenterPage.yil.selectOption(String.valueOf(yil)); // metin = "2000"
+        testCenterPage.yil.selectOptionByValue(String.valueOf(yil));  // value = "2000"
+        sleep(5000);
+
+        testCenterPage.ay.selectOption(ay); // gorunen metin ile sec="June"
+
+        sleep(3000);
+
+        //testCenterPage.gun.selectOptionByValue(String.valueOf(gun)); // value = "15"
+        testCenterPage.gun.selectOption(gun-1); // index = 25-1=24 bu 25. gunu secer
+        sleep(3000);
+    }
+    // alert step definitions
+    @And("alert prompt butonuna tiklar")
+    public void alertPromptButonunaTiklar() {
+        testCenterPage.promptButton.click();
+    }
+
+    @And("kullanici alerte {string} metnini yazar ve OK e tiklar")
+    public void kullaniciAlerteMetniniYazarVeOKETiklar(String arg0) throws InterruptedException {
+        switchTo().alert().sendKeys(arg0); // alerte feature den gelen metni girelim
+        sleep(3000);
+        switchTo().alert().accept(); // OK e tıklayalim
+        sleep(3000);
+    }
+
+    @And("kullanici sonucu {string} icerdigini dogrular")
+    public void kullaniciSonucuIcerdiginiDogrular(String arg0) {
+        testCenterPage.sonuc.shouldHave(text(arg0)); // feature den gelen metnin sonuc elementinde icerildigini dogrula
     }
 }
