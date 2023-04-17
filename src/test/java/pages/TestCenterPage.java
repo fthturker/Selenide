@@ -37,5 +37,6 @@ public class TestCenterPage {
 
     public SelenideElement sonuc=$("#result");
 
-
+    // iframe elementleri
+    public SelenideElement techProLink=$(By.xpath("//a[@type='button']"));
 }

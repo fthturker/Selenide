@@ -93,4 +93,14 @@ public class TestCenterStepDefinitions {
     public void kullaniciSonucuIcerdiginiDogrular(String arg0) {
         testCenterPage.sonuc.shouldHave(text(arg0)); // feature den gelen metnin sonuc elementinde icerildigini dogrula
     }
+
+    @And("switch to frame {int}")
+    public void switchToFrame(int frame) {
+        switchTo().frame(frame-1); // 0. indeks = 1. iframe
+    }
+
+    @And("kullanici back to techproeducation.com linkine tiklar")
+    public void kullaniciBackToTechproeducationComLinkineTiklar() {
+        testCenterPage.techProLink.click();
+    }
 }
