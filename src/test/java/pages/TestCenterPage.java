@@ -39,4 +39,9 @@ public class TestCenterPage {
 
     // iframe elementleri
     public SelenideElement techProLink=$(By.xpath("//a[@type='button']"));
+
+    // actions elementleri
+    public SelenideElement kaynak=$("#draggable");
+
+    public SelenideElement source=$("#droppable");
 }

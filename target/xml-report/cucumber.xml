@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="4.282" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="iframe _ windows" name="TC01 iframe" time="4.107">
+<testsuite name="Cucumber" time="3.38" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="actions" name="TC02 drag and drop by" time="3.233">
 <system-out><![CDATA[
-Given kullanici "https://testcenter.techproeducation.com/index.php?page=iframe" adresine gider.passed
+Given kullanici "https://jqueryui.com/droppable/" adresine gider............passed
 And switch to frame 1.......................................................passed
-And kullanici back to techproeducation.com linkine tiklar...................passed
-Then sayfayi acik tutar.....................................................passed
+And kullanici source elementini 463 by -19 koordinatlarina surukler.........passed
+And verilen koordinatlara 463 by -19 suruklendigini dogrula.................passed
 ]]></system-out>
 </testcase>
 </testsuite>

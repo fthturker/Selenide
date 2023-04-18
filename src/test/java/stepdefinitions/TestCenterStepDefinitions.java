@@ -5,7 +5,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.WebDriver;
+import org.junit.Assert;
 import pages.TestCenterPage;
 
 import java.time.Duration;
@@ -13,10 +13,10 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.checked;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.actions;
 import static com.codeborne.selenide.Selenide.switchTo;
 import static com.codeborne.selenide.WebDriverRunner.url;
 import static com.codeborne.selenide.impl.Html.text;
-import static java.lang.Thread.currentThread;
 import static java.lang.Thread.sleep;
 
 public class TestCenterStepDefinitions {
@@ -91,7 +91,6 @@ public class TestCenterStepDefinitions {
     public void alertPromptButonunaTiklar() {
         testCenterPage.promptButton.click();
     }
-
     @And("kullanici alerte {string} metnini yazar ve OK e tiklar")
     public void kullaniciAlerteMetniniYazarVeOKETiklar(String arg0) throws InterruptedException {
         switchTo().alert().sendKeys(arg0); // alerte feature den gelen metni girelim
@@ -99,7 +98,6 @@ public class TestCenterStepDefinitions {
         switchTo().alert().accept(); // OK e tıklayalim
         sleep(3000);
     }
-
     @And("kullanici sonucu {string} icerdigini dogrular")
     public void kullaniciSonucuIcerdiginiDogrular(String arg0) {
         testCenterPage.sonuc.shouldHave(text(arg0)); // feature den gelen metnin sonuc elementinde icerildigini dogrula
@@ -109,7 +107,6 @@ public class TestCenterStepDefinitions {
     public void switchToFrame(int frame) {
         switchTo().frame(frame - 1); // 0. indeks = 1. iframe
     }
-
     @And("kullanici back to techproeducation.com linkine tiklar")
     public void kullaniciBackToTechproeducationComLinkineTiklar() throws InterruptedException {
         testCenterPage.techProLink.click();
@@ -125,5 +122,33 @@ public class TestCenterStepDefinitions {
         System.out.println("Yeni pencereye gecis yapildi");
         Thread.sleep(3000);
         System.out.println("YENI SAYFA URL I: " + url()); // yeni sayfa url ni verecektir.
+    }
+
+    @And("kullanici source elementi target elementine surukler")
+    public void kullaniciSourceElementiTargetElementineSurukler() {
+        //selenium da
+        //Actions actions=new Actions();
+        //selenide de kısaca actions()
+        // 1. drapAndDrop
+        actions()
+                .dragAndDrop(testCenterPage.kaynak, testCenterPage.source) // kaynak elementi hedefe surukle
+                .build() // baglantiyi olustur (OPTIONAL)
+                .perform(); // verilen komutlari yap (ZORUNLU)
+    }
+
+    @And("kullanici source elementini {int} by {int} koordinatlarina surukler")
+    public void kullaniciSourceElementiniByKoordinatlarinaSurukler(int arg0, int arg1) {
+        actions()
+                .dragAndDropBy(testCenterPage.kaynak, arg0, arg1)
+                .build()
+                .perform();
+    }
+
+    @And("verilen koordinatlara {int} by {int} suruklendigini dogrula")
+    public void verilenKoordinatlaraBySuruklendiginiDogrula(int arg0, int arg1) {
+        String styleValue = testCenterPage.kaynak.getAttribute("style");
+        System.out.println(styleValue);
+        Assert
+                .assertTrue(styleValue.contains(String.valueOf(arg0)) && styleValue.contains(String.valueOf(arg1)));
     }
 }
