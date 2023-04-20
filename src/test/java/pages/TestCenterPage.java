@@ -44,4 +44,12 @@ public class TestCenterPage {
     public SelenideElement kaynak=$("#draggable");
 
     public SelenideElement source=$("#droppable");
+
+    // explicit elementleri
+    public SelenideElement startBotton=$(By.xpath("//div[@id='start']//button"));
+
+    public SelenideElement helloWorld=$(By.xpath("//div[@id='finish']//h4"));
+
+    // Screenshot
+    public SelenideElement googleImage=$(".lnXdpd");
 }

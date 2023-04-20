@@ -6,6 +6,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.TestCenterPage;
 
 import java.time.Duration;
@@ -150,5 +152,32 @@ public class TestCenterStepDefinitions {
         System.out.println(styleValue);
         Assert
                 .assertTrue(styleValue.contains(String.valueOf(arg0)) && styleValue.contains(String.valueOf(arg1)));
+    }
+
+    @Given("start butonuna tiklar")
+    public void start_butonuna_tiklar() {
+       testCenterPage.startBotton.click();
+    }
+    @Then("kullanici {string} metnini dogrular")
+    public void kullanici_metnini_dogrular(String arg0) {
+      // Assert.assertEquals(arg0,testCenterPage.helloWorld.getText()); // fail. wait problemi
+
+        // 1. WebDriverWait
+        //WebDriverWait wait=new WebDriverWait(WebDriverRunner.getWebDriver(),Duration.ofSeconds(10));
+        //wait.until(ExpectedConditions.visibilityOf(testCenterPage.helloWorld)); // explicit wait
+        //Assert.assertEquals(arg0,testCenterPage.helloWorld.getText()); // Pass. explicit wait ile problem cozuldu
+
+        // 2. Selenide Wait
+        //testCenterPage.helloWorld.should(visible,Duration.ofSeconds(10));
+        //Assert.assertEquals(arg0,testCenterPage.helloWorld.getText());
+
+        // 3. Selenide Wait
+        testCenterPage.helloWorld.shouldHave(text("Hello World!"),Duration.ofSeconds(10)); // selenide wait
+    }
+
+
+    @And("google image goruntusunu al")
+    public void googleImageGoruntusunuAl() {
+        testCenterPage.googleImage.screenshot();
     }
 }

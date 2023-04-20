@@ -1,8 +1,12 @@
 package stepdefinitions;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+
+import java.util.Date;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -35,5 +39,10 @@ public class CommonStepDefinitions {
         // varsayılan selenide ayarlarında, browser otomatik olarak kapanmaktadir
         Configuration.holdBrowserOpen=false; // varsayilan
         Configuration.holdBrowserOpen=true;
+    }
+
+    @And("tum ekran goruntusu alir")
+    public void tumEkranGoruntusuAlir() {
+        screenshot(new Date().toString()); // ekran goruntusune dinamik isim verildi.
     }
 }
