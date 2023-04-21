@@ -52,4 +52,8 @@ public class TestCenterPage {
 
     // Screenshot
     public SelenideElement googleImage=$(".lnXdpd");
+
+    // Java Script Executor Elementi
+    public SelenideElement amazonFooter=$(".navFooterMoreOnAmazon");
+
 }

@@ -1,13 +1,10 @@
 package stepdefinitions;
 
-import com.codeborne.selenide.WebDriverRunner;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.TestCenterPage;
 
 import java.time.Duration;
@@ -15,8 +12,7 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.checked;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.actions;
-import static com.codeborne.selenide.Selenide.switchTo;
+import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.url;
 import static com.codeborne.selenide.impl.Html.text;
 import static java.lang.Thread.sleep;
@@ -179,5 +175,12 @@ public class TestCenterStepDefinitions {
     @And("google image goruntusunu al")
     public void googleImageGoruntusunuAl() {
         testCenterPage.googleImage.screenshot();
+    }
+
+    @And("footer elementi gorunur sekilde goster")
+    public void footerElementiGorunurSekildeGoster() {
+        //testCenterPage.amazonFooter
+        executeJavaScript("arguments[0].scrollIntoView(true);",testCenterPage.amazonFooter);
+
     }
 }

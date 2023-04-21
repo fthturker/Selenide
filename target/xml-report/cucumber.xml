@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="4.264" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="screenshots" name="tum ekran goruntusu" time="4.111">
+<testsuite name="Cucumber" time="4.749" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="js executor" name="js executor" time="4.579">
 <system-out><![CDATA[
 Given kullanici "https://www.amazon.com/" adresine gider....................passed
 And tum ekran goruntusu alir................................................passed
+And footer elementi gorunur sekilde goster..................................passed
+And sayfayi acik tutar......................................................passed
 ]]></system-out>
 </testcase>
 </testsuite>
